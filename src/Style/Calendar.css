@@ -1,0 +1,15 @@
+.add_event_btn {
+    position: fixed;
+    bottom: 1rem;
+    left: 1rem;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 1;
+    border: 0;
+}
+
+.add_event_btn>svg {
+    color: rgb(6, 133, 55);
+    font-size: 4rem;
+}
+
