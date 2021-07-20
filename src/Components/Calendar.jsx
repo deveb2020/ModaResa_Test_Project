@@ -46,17 +46,9 @@ const Calendar = () => {
     const onEventAdded = (event) => {
         let calendarApi = calendarRef.current.getApi()
         calendarApi.addEvent(event) 
-        /*
-            * This is the result of the event that is being passed calendarApi
-        {
-            title: "Egzon Berisha"
-            start: Tue Jul 20 2021 14:00:00 GMT+0200 (heure d’été d’Europe centrale)
-            end: Tue Jul 20 2021 15:00:00 GMT+0200 (heure d’été d’Europe centrale)
-        }
-        */
     }
 
-    //* this function helps to get the event info, so we can than display into a modal
+    //* this function helps to get the event info, so we can than display into a EventModal Componnent
     const handleEventClick = ( eventInfo ) => {
         setEventModalOpen(true)
         setBrandName(eventInfo.event._def.title)
@@ -66,8 +58,6 @@ const Calendar = () => {
         setStaffMemberFirstName(eventInfo.event._def.extendedProps.staffMemberFirstName)
         setStaffMemberLastName(eventInfo.event._def.extendedProps.staffMemberLastName)
     }
-
-
 
     return (
         <div>
@@ -80,6 +70,7 @@ const Calendar = () => {
                     plugins={[ dayGridPlugin, interactionPlugin ]}
                     initialView="dayGridMonth"
                     eventClick={handleEventClick}
+                    dayMaxEventRows={true}
                 />
             </div>
 

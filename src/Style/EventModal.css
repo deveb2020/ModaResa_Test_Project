@@ -1,3 +1,16 @@
 .event_info_modal {
     text-align: center;
 }
+
+.ReactModal__Content {
+    width: 25rem;
+}
+
+@media screen and (max-width: 700px) {
+    .ReactModal__Content {
+        margin-top: 5rem;
+        height: 70vh;
+        width: 80vw;
+        inset: 0 !important;
+    }
+}

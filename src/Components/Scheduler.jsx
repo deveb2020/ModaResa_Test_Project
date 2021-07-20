@@ -16,6 +16,11 @@ const Scheduler = ({isOpen, onClose, onEventAdded}) => {
     const [end, setEnd] = useState(moment(new Date()).format("MMMM Do YYYY, h:mm a"))
     const [createAppoitment, { data, error }] = useMutation(CREATE_APPOINTMENT)
 
+
+    
+    //* This function runs everytime we submit the form
+    //* This function has to main goals: 
+    //* to send the appointment data to server and add instant data to the calendar so the user doesent need to refresh
     const onSubmit = (event) => {
         event.preventDefault()
 
@@ -31,23 +36,30 @@ const Scheduler = ({isOpen, onClose, onEventAdded}) => {
         if (error) { console.log(error) }
 
         onEventAdded({     
-            title: title, // title: "Egzon Berisha"
-            start: start, // start: Tue Jul 20 2021 14:00:00 GMT+0200 (heure d’été d’Europe centrale)
-            end: end     // end: Tue Jul 20 2021 15:00:00 GMT+0200 (heure d’été d’Europe centrale)
+            title: title, 
+            start: start, 
+            end: end    
         })
 
         onClose()
     } 
 
+    //* this function saves ClientId to a stateHook onChange
+    //* also it grabs option text so we can display to a user when making a selection
+    //* Than the userID is used to send the data to the backend,
+    //* While title is only used to display instant data to the table so the user doesent have to refresh the page
+    const handleChange = (event) => {
+        setClient(event.target.value)
+        var index = event.nativeEvent.target.selectedIndex;
+        setTitle(event.nativeEvent.target[index].text)
+    }
 
     return (
         <Modal isOpen={isOpen} onRequestClose={onClose}>
             <form onSubmit={onSubmit}>
-                <input placeholder="Brand name" value={title}  onChange={e => setTitle(e.target.value)} />
-
                 <div className="element_wrapper">
-                    <select className="select_client" id="clients" onChange={(event) => setClient(event.target.value)}>
-                        <option value="">Select client</option>
+                    <select className="select_client" id="clients" onChange={handleChange}>
+                        <option value="" defaultValue>Select client</option>
                         <option value="ckpxxtzyq0018oh7p6pp4w1xp">Client 1</option>
                         <option value="ckpxxtzyu0027oh7po6iyk77i">Client 2</option>
                         <option value="ckpxxtzyz0036oh7pkq3htl4r">Client 3</option>
