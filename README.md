@@ -18,12 +18,7 @@ Graphql is where we store our Querys and Mutations
 
 ## How to start the project
 
-You need to run the backend first by going to the frontend-test directory and we run this code
-
-    [ npm i ]  install node_modules
-    [ npm run dev ] start the server
-
-Than for the frontend you need to go to the modaresa_scheduler_calendar directory and run this commands
+You need to run the backend first than for the frontend you need to go to the modaresa_scheduler_calendar directory and run those commands
 
     [ npm i ] install node_modules 
     [ npm run start ] start the live preview
