@@ -9,7 +9,7 @@ import EventModal from './EventModal'
 import moment from 'moment'
 import { useQuery } from '@apollo/client';
 import { GET_EVENTS_QUERY } from "../graphql/Queries"
-
+import ModaResaLogo from "../Images/PinkLogo.png"
 
 
 const Calendar = () => {
@@ -62,6 +62,10 @@ const Calendar = () => {
     return (
         <div>
             {displayTheButtonConditionally}
+
+            <div className="logo">
+                <img src={ModaResaLogo} alt="ModaResa logo" />
+            </div>
             
             <div style={{position: 'relative', zIndex: "0"}}>
                 <FullCalendar

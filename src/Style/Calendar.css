@@ -1,3 +1,16 @@
+.logo {
+    overflow: hidden;
+    height: 5rem;
+    text-align: center;
+    background: rgb(255, 229, 228);
+}
+
+.logo>img {
+    width: 20rem;
+    height: 5rem;
+    object-fit: cover;
+}
+
 .add_event_btn {
     position: fixed;
     bottom: 1rem;
@@ -23,7 +36,14 @@
 }
 
 .fc .fc-toolbar.fc-header-toolbar {
+    background: #236b8531;
+    margin: 0 !important;
     padding: 1rem !important;
+}
+
+
+.fc .fc-scrollgrid-liquid {
+    background: #516bef1a;
 }
 
 @media screen and (max-width: 700px) {

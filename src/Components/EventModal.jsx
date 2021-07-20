@@ -14,6 +14,7 @@ const EventModal = ({isOpen, onClose, brandName, startDate, endDate, staffMember
                 <p>{staffMember}</p>
             </div>
         </Modal>
+
     )
 }
 
