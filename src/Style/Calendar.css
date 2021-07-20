@@ -13,3 +13,7 @@
     font-size: 4rem;
 }
 
+.fc-direction-ltr .fc-daygrid-event.fc-event-end {
+    cursor: pointer !important;
+    background: #80808029 !important;
+}

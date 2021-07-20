@@ -1,11 +1,18 @@
 import '../Style/App.css';
 import Calendar from './Calendar';
+import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client' 
 
 function App() {
+
+    const client = new ApolloClient({
+        cache: new InMemoryCache(),
+        uri: "http://localhost:4000/graphql"
+    })
+
     return (
-        <div className="App">
+        <ApolloProvider client={client} className="App">
             <Calendar/>
-        </div>
+        </ApolloProvider>
     );
 }
 
